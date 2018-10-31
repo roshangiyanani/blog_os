@@ -5,3 +5,9 @@ authors = ["Roshan Giyanani <roshangiyanani@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
