@@ -4,4 +4,12 @@ version = "0.1.0"
 authors = ["Roshan Giyanani <roshangiyanani@gmail.com>"]
 edition = "2018"
 
+[package.metadata.bootimage]
+default-target = "x86_64-blog_os.json"
+
 [dependencies]
+bootloader_precompiled = "0.2.0"
+
+[dev-dependencies]
+bootimage = "0.5.6"
+cargo-xbuild = "0.5.0"

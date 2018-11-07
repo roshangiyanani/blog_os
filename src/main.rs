@@ -3,6 +3,8 @@
 
 use core::panic::PanicInfo;
 
+extern crate bootloader_precompiled;
+
 /// This function is called on panic.
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
