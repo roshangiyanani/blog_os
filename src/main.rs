@@ -3,8 +3,6 @@
 
 use core::panic::PanicInfo;
 
-extern crate bootloader_precompiled;
-
 /// This function is called on panic.
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
@@ -17,7 +15,7 @@ static HELLO: &[u8] = b"Hello World!";
 pub extern "C" fn _start() -> ! {
     // this function is the entry point, since the
     // linker looks for a functions named `_start`
-    // by deafults
+    // by default
     let vga_buffer = 0xb8000 as *mut u8;
 
     for (i, &byte) in HELLO.iter().enumerate() {
