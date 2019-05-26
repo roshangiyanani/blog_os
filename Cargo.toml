@@ -25,3 +25,7 @@ panic = "abort"
 
 [profile.release]
 panic = "abort"
+
+[[test]]
+name = "panic_handler"
+harness = false
