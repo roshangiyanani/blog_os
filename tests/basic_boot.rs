@@ -6,13 +6,13 @@
 
 use core::panic::PanicInfo;
 
-use blog_os::{println, serial_print, serial_println};
+use blog_os::{hlt_loop, println, serial_print, serial_println};
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     test_main();
 
-    loop {}
+    hlt_loop()
 }
 
 #[panic_handler]

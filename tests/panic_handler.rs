@@ -6,7 +6,7 @@ use core::fmt;
 use core::fmt::Write;
 use core::panic::PanicInfo;
 
-use blog_os::{exit_qemu, serial_print, serial_println, QemuExitCode};
+use blog_os::{exit_qemu, hlt_loop, serial_print, serial_println, QemuExitCode};
 
 const MESSAGE: &str = "Example panic message from panic_handler test";
 const PANIC_LINE: u32 = 17; // adjust this when moving the `panic!` call
@@ -24,7 +24,7 @@ fn panic(info: &PanicInfo) -> ! {
 
     serial_println!("[ok]");
     exit_qemu(QemuExitCode::Success);
-    loop {}
+    hlt_loop()
 }
 
 fn check_message(info: &PanicInfo) {
@@ -50,7 +50,7 @@ fn fail(error: &str) -> ! {
     serial_println!("[failed]");
     serial_println!("{}", error);
     exit_qemu(QemuExitCode::Failed);
-    loop {}
+    hlt_loop()
 }
 
 struct CompareMessage {
